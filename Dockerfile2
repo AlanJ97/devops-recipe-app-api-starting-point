@@ -1,0 +1,11 @@
+FROM python:3.9-alpine3.13
+
+# Debug copying files
+COPY ./requirements.txt /tmp/requirements.txt
+RUN echo "Listing /tmp:" && ls -l /tmp
+
+COPY ./scripts/run.sh /scripts/run.sh
+RUN echo "Listing /scripts:" && ls -l /scripts
+
+COPY ./app /app
+RUN echo "Listing /app:" && ls -l /app
