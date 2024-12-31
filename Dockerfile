@@ -34,9 +34,9 @@ RUN python -m venv /py && \
     chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"
-
+USER django-user
 VOLUME /vol/web/media
 VOLUME /vol/web/static
-USER django-user
+
 
 CMD ["run.sh"]
