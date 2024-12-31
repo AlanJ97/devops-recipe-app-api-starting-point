@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   app:
     build:
@@ -16,6 +17,7 @@ services:
       - ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
     depends_on:
       - db
+
   db:
     image: postgres:13-alpine
     restart: always
@@ -25,6 +27,7 @@ services:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
+
   proxy:
     build:
       context: ./proxy
