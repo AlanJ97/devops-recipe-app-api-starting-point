@@ -5,6 +5,7 @@ terraform {
       version = "5.23.0"
     }
   }
+
   backend "s3" {
     bucket         = "devops-recipe-app-tf-state-1241"
     key            = "tf-state-setup"
@@ -19,8 +20,8 @@ provider "aws" {
     tags = {
       Environment = terraform.workspace
       Project     = var.project
-      contact     = var.contact
-      ManagedBy   = "Terraform/setup"
+      Contact     = var.contact
+      ManageBy    = "Terraform/setup"
     }
   }
 }

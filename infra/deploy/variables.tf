@@ -1,14 +1,14 @@
 variable "prefix" {
-  description = "The prefix to use for all resources"
+  description = "Prefix for resources in AWS"
   default     = "raa"
 }
 
 variable "project" {
-  description = "The name of the project for tagging resources"
+  description = "Project name for tagging resources"
   default     = "recipe-app-api"
-
 }
+
 variable "contact" {
-  description = "The contact email for the project"
+  description = "Contact email for tagging resources"
   default     = "alan02n@gmail.com"
 }
