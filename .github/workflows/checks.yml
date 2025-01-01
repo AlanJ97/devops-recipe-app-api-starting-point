@@ -9,4 +9,4 @@ jobs:
     uses: ./.github/workflows/test-and-lint.yml
     secrets:
       DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
-      DOCKERHU_TOKEB: ${{ secrets.DOCKERHUB_TOKEN }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
