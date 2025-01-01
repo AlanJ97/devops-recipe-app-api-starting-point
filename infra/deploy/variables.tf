@@ -12,3 +12,13 @@ variable "contact" {
   description = "Contact email for tagging resources"
   default     = "alan02n@gmail.com"
 }
+
+variable "db_username" {
+  description = "Userame for the recipe api database"
+  default     = "recipeapp"
+}
+
+variable "db_password" {
+  description = "Password for the Terraform database"
+
+}
