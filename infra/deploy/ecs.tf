@@ -42,7 +42,7 @@ resource "aws_cloudwatch_log_group" "ecs_task_logs" {
 
 }
 
-resource "aws_ecs_cluster" "name" {
+resource "aws_ecs_cluster" "main" {
   name = "${local.prefix}-cluster"
 }
 
@@ -182,5 +182,25 @@ resource "aws_security_group" "ecs_service" {
     to_port     = 8000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_ecs_service" "api" {
+  name                   = "${local.prefix}-api"
+  cluster                = aws_ecs_cluster.main.name
+  task_definition        = aws_ecs_task_definition.api.family
+  desired_count          = 1
+  launch_type            = "FARGATE"
+  platform_version       = "1.4.0"
+  enable_execute_command = true
+
+  network_configuration {
+    assign_public_ip = aws_iam_role.task_execution_role
+    subnets = [
+      aws_subnet.public_a.id,
+      aws_subnet.public_b.id
+    ]
+
+    security_groups = [aws_security_group.ecs_service.id]
   }
 }
