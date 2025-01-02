@@ -1,8 +1,10 @@
 ##
 # ECS Cluster for running app on Fargate.
 ##
+
 resource "aws_iam_policy" "task_execution_role_policy" {
   name        = "${local.prefix}-task-exec-role-policy"
+  path = "/"
   description = "Allow ECS to retrieve images and to add to logs"
   policy      = file("./templates/ecs/task-execution-role-policy.json")
 }
@@ -143,7 +145,7 @@ resource "aws_ecs_task_definition" "api" {
   )
 
   volume {
-    name = "status"
+    name = "static"
   }
 
   runtime_platform {
@@ -172,7 +174,7 @@ resource "aws_security_group" "ecs_service" {
     protocol  = "tcp"
     cidr_blocks = [
       aws_subnet.private_a.cidr_block,
-      aws_subnet.private_b.cidr_block
+      aws_subnet.private_b.cidr_block,
     ]
   }
 
