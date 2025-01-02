@@ -27,3 +27,12 @@ variable "ecr_proxy_image" {
   description = "Path to the ECR Repo with the proxy image"
 
 }
+
+variable "ecr_app_image" {
+  description = "Path to the ECR Repo with the app image"
+
+}
+
+variable "django_secret_key" {
+  description = "Secret key for Djnago"
+}
