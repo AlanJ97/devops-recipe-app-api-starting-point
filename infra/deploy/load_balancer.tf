@@ -42,7 +42,7 @@ resource "aws_lb_target_group" "api" {
   vpc_id      = aws_vpc.main.id
   target_type = "ip"
   port        = 8000
-  
+
   health_check {
     path = "/api/health-check"
   }
