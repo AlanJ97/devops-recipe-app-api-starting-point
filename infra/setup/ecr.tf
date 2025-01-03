@@ -14,7 +14,7 @@ resource "aws_ecr_repository" "app" {
 }
 
 resource "aws_ecr_repository" "proxy" {
-  name                 = "recipe-app-api-proxy"
+  name                 = "recipe-app-api_proxy"
   image_tag_mutability = "MUTABLE"
   force_delete         = true
 
