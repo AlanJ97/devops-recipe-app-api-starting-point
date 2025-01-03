@@ -36,3 +36,19 @@ variable "ecr_app_image" {
 variable "django_secret_key" {
   description = "Secret key for Djnago"
 }
+
+variable "dns_zone_name" {
+  description = "Name of the Route53 DNS zone"
+  default     = "alandevopstests.com"
+}
+
+variable "subdomain" {
+  description = "Subdomain for each environment"
+  type        = map(string)
+
+  default = {
+    prod    = "api"
+    staging = "api.staging"
+    dev     = "api.dev"
+  }
+}
