@@ -303,6 +303,7 @@ data "aws_iam_policy_document" "elb" {
   statement {
     effect = "Allow"
     actions = [
+      "elasticloadbalancing:*",
       "elasticloadbalancing:DeleteLoadBalancer",
       "elasticloadbalancing:DeleteTargetGroup",
       "elasticloadbalancing:DeleteListener",
